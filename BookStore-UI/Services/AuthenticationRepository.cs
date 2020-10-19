@@ -47,6 +47,7 @@ namespace BookStore_UI.Services
 
             //store token
             await _localStorage.SetItemAsync("authToken", token.Token);
+            await _localStorage.SetItemAsync("LoginName", user.EmailAddress);
 
             //change auth state of app
 
@@ -59,6 +60,7 @@ namespace BookStore_UI.Services
         public async Task Logout()
         {
             await _localStorage.RemoveItemAsync("authToken");
+            await _localStorage.RemoveItemAsync("LoginName");
             ((ApiAuthenticationStateProvider)_authenticationStateProvider).LoggedOut();
         }
 
