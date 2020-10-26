@@ -4,7 +4,7 @@
 
 @inject IAuthorRepository _repo
 @inject NavigationManager _navManager
-
+@inject IToastService _toastService
 
 <h3 class="card-title">Create New Author</h3>
 <br/>
@@ -58,6 +58,7 @@
 
         if (isSuccess)
         {
+            _toastService.ShowSuccess("Author Created Successfully.");
             BackToList();
         }
 
